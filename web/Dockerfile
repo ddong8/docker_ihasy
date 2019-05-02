@@ -12,7 +12,9 @@ RUN mkdir /etc/ork
 
 WORKDIR /code/ork
 
-COPY /code/ork/etc/ork.json /etc/ork/ork.json
+ADD ./codes/ork /code/ork
+
+COPY ./codes/ork/etc/ork.json /etc/ork/ork.json
 
 RUN pip install -r requirements.txt -i https://mirrors.aliyun.com/pypi/simple/ --trusted-host mirrors.aliyun.com
 CMD ["python", "/code/ork/start_up.py"]
