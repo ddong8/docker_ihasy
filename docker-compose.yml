@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  db:
+    build: ./db
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456
+      - MYSQL_DATABASE=ihasy
+      - MYSQL_USER=test
+      - MYSQL_PASS=123456
+    volumes:
+      - ./db/conf:/etc/mysql/conf.d
+      - ./db/logs:/logs
+      - ./db/init:/docker-entrypoint-initdb.d/
+    container_name: db
+    restart: always
+    ports:
+      - "3306:3306"
+  web:
+    build: ./web
+    restart: always
+    volumes:
+      - ./web/codes:/code
+    ports:
+      - "8000:8000"
+    links:
+      - db
+    depends_on:
+      - db
+    container_name: web
