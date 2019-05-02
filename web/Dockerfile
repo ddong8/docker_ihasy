@@ -11,9 +11,8 @@ RUN chmod -R 777 /var/log/ork
 RUN mkdir /etc/ork
 
 WORKDIR /code/ork
-ADD ./codes/ork /code/ork
 
-RUN cp /code/ork/etc/ork.json /etc/ork/ork.json
+COPY /code/ork/etc/ork.json /etc/ork/ork.json
 
 RUN pip install -r requirements.txt -i https://mirrors.aliyun.com/pypi/simple/ --trusted-host mirrors.aliyun.com
 CMD ["python", "/code/ork/start_up.py"]
