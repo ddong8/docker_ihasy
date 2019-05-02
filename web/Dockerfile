@@ -16,4 +16,4 @@ ADD ./codes/ork /code/ork
 RUN cp /code/ork/etc/ork.json /etc/ork/ork.json
 
 RUN pip install -r requirements.txt -i https://mirrors.aliyun.com/pypi/simple/ --trusted-host mirrors.aliyun.com
-CMD ["python", "/code/ork/ork/server/tornado_server.py"]
+CMD [ "/code/ork/ork/server/tornado_server.py" ]
