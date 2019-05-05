@@ -18,3 +18,4 @@ RUN chmod -R 777 /db
 
 ##设置容器启动时执行的命令
 #CMD ["mysql", "< /db/import/ihasy.sql"]
+EXPOSE 5432
