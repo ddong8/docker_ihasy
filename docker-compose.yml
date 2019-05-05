@@ -25,8 +25,3 @@ services:
     depends_on:
       - db
     container_name: web
-
-
-networks:
-  default:
-    driver: host
