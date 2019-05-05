@@ -7,6 +7,8 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=123456
       - POSTGRES_DB=ork
+    volumes:
+      - ./db/init:/docker-entrypoint-initdb.d/
     container_name: db
     restart: always
     ports:
